@@ -1,0 +1,8 @@
+{
+  "name": "English With Gab - Learning Portal",
+  "description": "An interactive English learning platform for teachers to assign activities and students to receive automatic feedback and tracking.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
