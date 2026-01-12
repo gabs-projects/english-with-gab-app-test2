@@ -38,7 +38,6 @@
         .bg-gab-gradient {
             background: linear-gradient(135deg, #0a0a2e 0%, #1e1b4b 50%, #7c3aed 100%);
         }
-        /* Custom logo background mimicking the uploaded image with multiple layers */
         .brand-logo-bg {
             background: linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #1e1b4b 100%);
             background-image: 
@@ -54,7 +53,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: url('https://www.transparenttextures.com/patterns/cubes.png'); /* subtle texture */
+            background: url('https://www.transparenttextures.com/patterns/cubes.png');
             opacity: 0.1;
         }
         .organic-shape {
@@ -64,10 +63,10 @@
 <script type="importmap">
 {
   "imports": {
-    "@google/genai": "https://esm.sh/@google/genai@^1.35.0",
-    "react/": "https://esm.sh/react@^19.2.3/",
     "react": "https://esm.sh/react@^19.2.3",
     "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.35.0",
     "recharts": "https://esm.sh/recharts@^3.6.0",
     "vite": "https://esm.sh/vite@^7.3.1",
     "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
@@ -77,5 +76,7 @@
 </head>
 <body class="font-sans antialiased text-slate-900 dark:text-white bg-slate-50 dark:bg-gab-deep">
     <div id="root"></div>
+    <!-- Este script abaixo é o que estava faltando para o app carregar! -->
+    <script type="module" src="/index.tsx"></script>
 </body>
 </html>
