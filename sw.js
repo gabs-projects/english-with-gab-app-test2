@@ -1,17 +1,18 @@
-
-const CACHE_NAME = 'gab-english-v4';
+const CACHE_NAME = 'gab-english-v5';
 const assetsToCache = [
-  '/',
-  '/index.html',
-  '/manifest.json',
-  'https://cdn.tailwindcss.com',
-  'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap'
+  './',
+  './index.html',
+  './manifest.json'
 ];
 
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
-      return cache.addAll(assetsToCache);
+      // Usamos map e promise.allSettled para que se um arquivo falhar, 
+      // o SW ainda instale com sucesso
+      return Promise.allSettled(
+        assetsToCache.map(url => cache.add(url))
+      );
     })
   );
   self.skipWaiting();
@@ -29,16 +30,13 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('fetch', event => {
-  // Ignorar requisições que não sejam GET
   if (event.request.method !== 'GET') return;
 
   event.respondWith(
     caches.match(event.request).then(cachedResponse => {
-      if (cachedResponse) {
-        return cachedResponse;
-      }
+      if (cachedResponse) return cachedResponse;
+      
       return fetch(event.request).then(response => {
-        // Verifica se a resposta é válida antes de colocar no cache
         if (!response || response.status !== 200 || response.type !== 'basic') {
           return response;
         }
@@ -47,12 +45,11 @@ self.addEventListener('fetch', event => {
           cache.put(event.request, responseToCache);
         });
         return response;
+      }).catch(() => {
+        if (event.request.mode === 'navigate') {
+          return caches.match('./index.html');
+        }
       });
-    }).catch(() => {
-      // Fallback para o index.html em caso de falha de rede
-      if (event.request.mode === 'navigate') {
-        return caches.match('/');
-      }
     })
   );
 });

@@ -1,26 +1,32 @@
-
 {
   "short_name": "Gab English",
-  "name": "English With Gab - Learning Portal",
-  "description": "Seu portal exclusivo para aprender inglês com a Gab.",
+  "name": "English With Gab",
+  "description": "Portal exclusivo para alunos English With Gab.",
   "icons": [
     {
       "src": "https://picsum.photos/seed/gab-192/192",
       "type": "image/png",
       "sizes": "192x192",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "https://picsum.photos/seed/gab-192/192",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "maskable"
     },
     {
       "src": "https://picsum.photos/seed/gab-512/512",
       "type": "image/png",
       "sizes": "512x512",
-      "purpose": "any maskable"
+      "purpose": "any"
     }
   ],
-  "start_url": "/",
+  "start_url": "./index.html",
   "display": "standalone",
   "theme_color": "#0a0a2e",
   "background_color": "#0a0a2e",
   "orientation": "portrait",
-  "scope": "/"
+  "scope": "./",
+  "categories": ["education"]
 }

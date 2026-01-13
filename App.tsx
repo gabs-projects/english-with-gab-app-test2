@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Layout } from './components/Layout';
 import { User, Activity, Submission, Message, CalendarEvent } from './types';
@@ -42,14 +41,12 @@ const App: React.FC = () => {
 
   const [currentPage, setCurrentPage] = useState<{name: string, params?: any}>({ name: 'home' });
   
-  // Estado para gerenciar a instalação do PWA
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
 
   useEffect(() => {
     const handleBeforeInstallPrompt = (e: Event) => {
-      // Impede o mini-infobar padrão do Chrome de aparecer
+      console.log('PWA: Evento beforeinstallprompt disparado!');
       e.preventDefault();
-      // Guarda o evento para ser disparado pelo nosso botão
       setDeferredPrompt(e);
     };
 
@@ -61,16 +58,14 @@ const App: React.FC = () => {
   }, []);
 
   const handleInstallClick = async () => {
-    if (!deferredPrompt) return;
+    if (!deferredPrompt) {
+      console.log('PWA: Prompt ainda não disponível.');
+      return;
+    }
     
-    // Mostra o prompt de instalação
     deferredPrompt.prompt();
-    
-    // Espera pela escolha do usuário
     const { outcome } = await deferredPrompt.userChoice;
-    console.log(`User response to the install prompt: ${outcome}`);
-    
-    // Limpa o prompt para que não possa ser usado novamente
+    console.log(`PWA: Escolha do usuário: ${outcome}`);
     setDeferredPrompt(null);
   };
 
