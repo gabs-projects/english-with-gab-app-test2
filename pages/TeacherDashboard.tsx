@@ -241,12 +241,13 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
 
       <div className="flex-1 min-w-0">
         <header className="mb-8">
-           <h1 className="text-3xl font-bold text-gab-indigo dark:text-white capitalize">
-             {activeTab === 'overview' ? 'Média Geral' : 
-              activeTab === 'grades' ? 'Notas Detalhadas' : 
-              activeTab === 'create' ? 'Criar Atividades' : 
-              activeTab === 'chat' ? 'Comunicação' : 
-              activeTab === 'calendar' ? 'Agenda Acadêmica' : 'Meu Perfil'}
+           <h1 className="text-3xl font-bold text-gab-indigo dark:text-white capitalize flex items-center gap-3">
+             welcome back! •
+             {activeTab === 'overview' ? ' Média Geral' : 
+              activeTab === 'grades' ? ' Notas Detalhadas' : 
+              activeTab === 'create' ? ' Criar Atividades' : 
+              activeTab === 'chat' ? ' Comunicação' : 
+              activeTab === 'calendar' ? ' Agenda Acadêmica' : ' Meu Perfil'}
            </h1>
            <p className="text-slate-500 dark:text-white/60 italic">Portal English With Gab • {currentUser.name}</p>
         </header>

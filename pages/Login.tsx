@@ -15,7 +15,7 @@ export const Login: React.FC<LoginProps> = ({ onLogin }) => {
           <div className="w-16 h-16 brand-logo-bg rounded-full mx-auto mb-4 flex items-center justify-center text-white font-bold text-3xl shadow-lg">
             G
           </div>
-          <h2 className="text-2xl font-bold text-gab-indigo dark:text-gab-gold mb-2">Bem-vindo(a) de volta</h2>
+          <h2 className="text-2xl font-bold text-gab-indigo dark:text-white mb-2">welcome back!</h2>
           <p className="text-slate-500 dark:text-slate-400">Escolha um perfil para entrar no portal</p>
         </div>
 
