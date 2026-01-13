@@ -1,8 +1,8 @@
 
 {
   "short_name": "Gab English",
-  "name": "English With Gab",
-  "description": "Portal de Aprendizado English With Gab",
+  "name": "English With Gab - Learning Portal",
+  "description": "Seu portal exclusivo para aprender inglês com a Gab.",
   "icons": [
     {
       "src": "https://picsum.photos/seed/gab-192/192",
@@ -17,9 +17,10 @@
       "purpose": "any maskable"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
   "theme_color": "#0a0a2e",
   "background_color": "#0a0a2e",
-  "orientation": "portrait"
+  "orientation": "portrait",
+  "scope": "/"
 }

@@ -41,6 +41,38 @@ const App: React.FC = () => {
   });
 
   const [currentPage, setCurrentPage] = useState<{name: string, params?: any}>({ name: 'home' });
+  
+  // Estado para gerenciar a instalação do PWA
+  const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
+
+  useEffect(() => {
+    const handleBeforeInstallPrompt = (e: Event) => {
+      // Impede o mini-infobar padrão do Chrome de aparecer
+      e.preventDefault();
+      // Guarda o evento para ser disparado pelo nosso botão
+      setDeferredPrompt(e);
+    };
+
+    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+
+    return () => {
+      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    };
+  }, []);
+
+  const handleInstallClick = async () => {
+    if (!deferredPrompt) return;
+    
+    // Mostra o prompt de instalação
+    deferredPrompt.prompt();
+    
+    // Espera pela escolha do usuário
+    const { outcome } = await deferredPrompt.userChoice;
+    console.log(`User response to the install prompt: ${outcome}`);
+    
+    // Limpa o prompt para que não possa ser usado novamente
+    setDeferredPrompt(null);
+  };
 
   useEffect(() => {
     if (user) localStorage.setItem('user', JSON.stringify(user));
@@ -180,6 +212,8 @@ const App: React.FC = () => {
       onLogout={handleLogout} 
       darkMode={darkMode} 
       toggleTheme={toggleTheme}
+      canInstall={!!deferredPrompt}
+      onInstall={handleInstallClick}
     >
       {renderPage()}
     </Layout>
