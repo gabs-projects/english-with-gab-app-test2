@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0a2e">
     <title>English With Gab</title>
+    <link rel="manifest" href="/manifest.json">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script>
@@ -32,12 +34,8 @@
         }
     </script>
     <style>
-        body {
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        .bg-gab-gradient {
-            background: linear-gradient(135deg, #0a0a2e 0%, #1e1b4b 50%, #7c3aed 100%);
-        }
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+        .bg-gab-gradient { background: linear-gradient(135deg, #0a0a2e 0%, #1e1b4b 50%, #7c3aed 100%); }
         .brand-logo-bg {
             background: linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #1e1b4b 100%);
             background-image: 
@@ -56,9 +54,6 @@
             background: url('https://www.transparenttextures.com/patterns/cubes.png');
             opacity: 0.1;
         }
-        .organic-shape {
-            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-        }
     </style>
 <script type="importmap">
 {
@@ -73,10 +68,10 @@
   }
 }
 </script>
+<link rel="stylesheet" href="/index.css">
 </head>
 <body class="font-sans antialiased text-slate-900 dark:text-white bg-slate-50 dark:bg-gab-deep">
     <div id="root"></div>
-    <!-- Este script abaixo é o que estava faltando para o app carregar! -->
     <script type="module" src="/index.tsx"></script>
 </body>
 </html>
