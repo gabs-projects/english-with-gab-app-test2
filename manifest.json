@@ -1,7 +1,7 @@
 
 {
   "short_name": "Gab English",
-  "name": "English With Gab - Learning Portal",
+  "name": "English With Gab",
   "icons": [
     {
       "src": "https://picsum.photos/192",
@@ -16,7 +16,7 @@
       "purpose": "any maskable"
     }
   ],
-  "start_url": "/",
+  "start_url": "./",
   "display": "standalone",
   "theme_color": "#0a0a2e",
   "background_color": "#0a0a2e",
