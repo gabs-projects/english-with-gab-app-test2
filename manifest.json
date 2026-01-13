@@ -2,21 +2,22 @@
 {
   "short_name": "Gab English",
   "name": "English With Gab",
+  "description": "Portal de Aprendizado English With Gab",
   "icons": [
     {
-      "src": "https://picsum.photos/192",
+      "src": "https://picsum.photos/seed/gab-192/192",
       "type": "image/png",
       "sizes": "192x192",
       "purpose": "any maskable"
     },
     {
-      "src": "https://picsum.photos/512",
+      "src": "https://picsum.photos/seed/gab-512/512",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "any maskable"
     }
   ],
-  "start_url": "./",
+  "start_url": ".",
   "display": "standalone",
   "theme_color": "#0a0a2e",
   "background_color": "#0a0a2e",
