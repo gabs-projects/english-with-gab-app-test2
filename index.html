@@ -3,10 +3,14 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#0a0a2e">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Gab English">
     <title>English With Gab</title>
     <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="https://picsum.photos/192">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script>
@@ -34,7 +38,10 @@
         }
     </script>
     <style>
-        body { transition: background-color 0.3s ease, color 0.3s ease; }
+        body { 
+            transition: background-color 0.3s ease, color 0.3s ease;
+            overscroll-behavior-y: contain;
+        }
         .bg-gab-gradient { background: linear-gradient(135deg, #0a0a2e 0%, #1e1b4b 50%, #7c3aed 100%); }
         .brand-logo-bg {
             background: linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #1e1b4b 100%);
@@ -68,7 +75,6 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
 </head>
 <body class="font-sans antialiased text-slate-900 dark:text-white bg-slate-50 dark:bg-gab-deep">
     <div id="root"></div>

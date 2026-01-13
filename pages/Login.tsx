@@ -9,13 +9,13 @@ interface LoginProps {
 
 export const Login: React.FC<LoginProps> = ({ onLogin }) => {
   return (
-    <div className="max-w-md mx-auto mt-20 font-sans">
+    <div className="max-w-md mx-auto mt-20 font-sans px-4">
       <div className="bg-white dark:bg-gab-indigo p-8 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-800">
         <div className="text-center mb-8">
           <div className="w-16 h-16 brand-logo-bg rounded-full mx-auto mb-4 flex items-center justify-center text-white font-bold text-3xl shadow-lg">
             G
           </div>
-          <h2 className="text-2xl font-bold text-gab-indigo dark:text-white mb-2">welcome back!</h2>
+          <h2 className="text-2xl font-bold text-gab-indigo dark:text-white mb-2">Welcome back!</h2>
           <p className="text-slate-500 dark:text-slate-400">Escolha um perfil para entrar no portal</p>
         </div>
 
@@ -28,7 +28,7 @@ export const Login: React.FC<LoginProps> = ({ onLogin }) => {
             >
               <img src={u.avatar} alt={u.name} className="w-12 h-12 rounded-full border-2 border-transparent group-hover:border-gab-blue transition-colors" />
               <div className="text-left">
-                <p className="font-semibold">{u.name}</p>
+                <p className="font-semibold dark:text-white">{u.name}</p>
                 <p className="text-sm text-slate-500 dark:text-slate-400 capitalize">{u.role === 'teacher' ? 'Professora' : 'Aluno'}</p>
               </div>
               <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
