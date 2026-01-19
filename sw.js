@@ -1,15 +1,14 @@
-const CACHE_NAME = 'gab-english-v5';
+
+const CACHE_NAME = 'gab-english-v6';
 const assetsToCache = [
-  './',
-  './index.html',
-  './manifest.json'
+  '/',
+  '/index.html',
+  '/manifest.json'
 ];
 
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
-      // Usamos map e promise.allSettled para que se um arquivo falhar, 
-      // o SW ainda instale com sucesso
       return Promise.allSettled(
         assetsToCache.map(url => cache.add(url))
       );
@@ -46,8 +45,9 @@ self.addEventListener('fetch', event => {
         });
         return response;
       }).catch(() => {
+        // Se a navegação falhar (offline ou 404), retorna o index.html
         if (event.request.mode === 'navigate') {
-          return caches.match('./index.html');
+          return caches.match('/');
         }
       });
     })

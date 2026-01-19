@@ -1,3 +1,4 @@
+
 {
   "short_name": "Gab English",
   "name": "English With Gab",
@@ -22,11 +23,11 @@
       "purpose": "any"
     }
   ],
-  "start_url": "./index.html",
+  "start_url": "/",
   "display": "standalone",
   "theme_color": "#0a0a2e",
   "background_color": "#0a0a2e",
   "orientation": "portrait",
-  "scope": "./",
+  "scope": "/",
   "categories": ["education"]
 }
